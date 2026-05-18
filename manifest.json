@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "生词收藏夹",
+  "description": "在阅读网页时收藏不认识的英文单词，并自动附上中文含义。",
+  "version": "0.1.1",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://api.mymemory.translated.net/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "生词收藏夹"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>生词收藏夹</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>生词收藏夹</h1>
+          <p id="summary">0 个单词</p>
+        </div>
+        <button id="exportButton" class="icon-button" title="导出 CSV" aria-label="导出 CSV">
+          <span aria-hidden="true">↓</span>
+        </button>
+      </header>
+
+      <section class="toolbar" aria-label="筛选单词">
+        <input id="searchInput" type="search" placeholder="搜索单词或网页">
+        <div class="segments">
+          <button class="segment active" data-filter="all" type="button">全部</button>
+          <button class="segment" data-filter="learning" type="button">学习中</button>
+          <button class="segment" data-filter="learned" type="button">已记住</button>
+        </div>
+      </section>
+
+      <section id="emptyState" class="empty">
+        <h2>选中网页里的英文单词</h2>
+        <p>松开鼠标后点“收藏”，它就会留在这里。</p>
+      </section>
+
+      <section id="wordList" class="word-list" aria-label="收藏的单词"></section>
+    </main>
+
+    <template id="wordTemplate">
+      <article class="word-card">
+        <div class="word-card__main">
+          <div class="word-card__title-row">
+            <h2 class="word-card__word"></h2>
+            <span class="word-card__count"></span>
+          </div>
+          <p class="word-card__meaning"></p>
+          <p class="word-card__context"></p>
+          <a class="word-card__source" target="_blank" rel="noreferrer"></a>
+        </div>
+        <div class="word-card__actions">
+          <button class="small-button mark-button" type="button"></button>
+          <button class="small-button delete-button" type="button">删除</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
